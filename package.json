@@ -1,0 +1,37 @@
+{
+  "name": "@ballcat/commitlint-config-gitmoji",
+  "version": "1.0.2",
+  "description": "Shareable commitlint config enforcing the gitmoji commit convention",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "commitlint",
+    "commitlint-config",
+    "commitlint-config-gitmoji",
+    "gitmoji",
+    "emoji",
+    "git"
+  ],
+  "author": "Hccake <chengbohua@foxmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=v14"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@commitlint/lint": "^17.0.0",
+    "@commitlint/test-environment": "^9.0.1",
+    "@commitlint/utils": "^8.3.6",
+    "babel-jest": "^28.1.0",
+    "jest": "^28.1.0"
+  },
+  "dependencies": {
+    "gitmojis": "^3.9.0"
+  }
+}
