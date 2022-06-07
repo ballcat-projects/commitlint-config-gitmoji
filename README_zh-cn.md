@@ -4,10 +4,17 @@
 ## 提交消息的格式
 ```
 <type> (<scope>) <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
 ```
-- `type`: 规定列表中的一个 Emoji Code
-- `scope`: 可选的，用来描述当前更改范围
-- `subject`: 更改的简要说明
+- `type`(必须): 规定列表中的一个 Emoji Code
+- `scope`(可选): 用来描述当前更改范围
+- `subject`(必须): 更改的简要说明
+- `body`(可选): 更改的动机，详细描述等
+- `footer`(可选): 链接或者操作 issues 或 PR, 例如：**Closes #392**
+
 
 ## 开始使用
 

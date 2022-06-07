@@ -4,10 +4,16 @@ English | [中文](./README_zh-cn.md)
 ## Commit Message Format
 ```
 <type> (<scope>) <subject>
+<BLANK LINE>
+<body>
+<BLANK LINE>
+<footer>
 ```
-- `type`: An emoji from the list.
-- `scope`: An optional string that adds contextual information for the scope of the change.
-- `subject`: A brief explanation of the change.
+- `type`(required): An emoji from the list.
+- `scope`(optional): An optional string that adds contextual information for the scope of the change.
+- `subject`(required): A brief explanation of the change.
+- `body`(required): Detailed description of the change.
+- `footer`(required): Links and operation issues or PR, eg.**Closes #392**
 
 ## Getting started
 
