@@ -4,7 +4,7 @@ const allGitmojiCodes = gitmojis.map(gitmoji => gitmoji.code);
 module.exports = {
     parserPreset: {
         parserOpts: {
-            headerPattern: /^(:\w*:) (?:\((.* )\))?(.*)$/,
+            headerPattern: /^(:\w*:) (?:\((.*)\) )?(.*)$/,
             headerCorrespondence: ["type", "scope", "subject"]
         }
     },
