@@ -1,20 +1,8 @@
-# commit-config-gitmoji
+# @ballcat/commit-config-gitmoji
 [English](./README.md) | 中文
 
-## 提交消息的格式
-```
-<type> (<scope>) <subject>
-<BLANK LINE>
-<body>
-<BLANK LINE>
-<footer>
-```
-- `type`(必须): 规定列表中的一个 Emoji Code
-- `scope`(可选): 用来描述当前更改范围
-- `subject`(必须): 更改的简要说明
-- `body`(可选): 更改的动机，详细描述等
-- `footer`(可选): 链接或者操作 issues 或 PR, 例如：**Closes #392**
-
+可共享的 `commitlint` 配置，强制使用 [gitmoji](https://github.com/carloscuesta/gitmoji).  
+需要和 [@commitlint/cli](https://npm.im/@commitlint/cli) 或 [@commitlint/prompt-cli](https://npm.im/@commitlint/prompt-cli) 搭配使用.
 
 ## 开始使用
 
@@ -42,7 +30,157 @@ pnpm dlx husky-init && pnpm install # pnpm
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
 ```
 
-## Gitmoji 列表
+## 提交消息的格式
+```
+<type> [scope] <subject>
+
+[body]
+
+[footer]
+```
+- `type`(必须): 规定列表中的一个 Emoji Code
+- `scope`(可选): 使用英文括号包裹，用来描述当前更改范围
+- `subject`(必须): 更改的简要说明
+- `body`(可选): 更改的动机，详细描述等
+- `footer`(可选): 链接或者操作 issues 或 PR, 例如：**Closes #392**
+
+
+## Rules
+
+### Problems
+
+以下 rules 被视为 `@ballcat/commit-config-gitmoji` 的问题，如果不满足，将产生非零退出代码。
+
+更多可用的 rules，请参阅 [docs/rules](https://conventional-changelog.github.io/commitlint/#/reference-rules).
+
+#### type-enum
+
+- **condition**: `type` 存在于 value 中
+- **rule**: `always`
+- **level**: `error`
+- **value**: emoji code 列表，参看 <a herf="#gitmoji-list">gitmoji list</a>
+
+
+```sh
+echo ":no: some message" # fails
+echo ":bug: some message" # passes
+```
+
+#### type-case
+
+- **description**: `type` 必须符合 `value` 指定的大小写规范
+- **rule**: `always`
+- **level**: `error`
+- **value**
+  ```
+  'lowerCase'
+  ```
+
+```sh
+echo ":BUG: some message" # fails
+echo ":bug: some message" # passes
+```
+
+#### type-empty
+
+- **condition**: `type` 为空
+- **rule**: `never`
+- **level**: `error`
+
+```sh
+echo "some message" # fails
+echo ":bug: some message" # passes
+```
+
+#### subject-case
+
+- **condition**: `subject` 符合其中的一种格式： `['sentence-case', 'start-case', 'pascal-case', 'upper-case']`
+- **rule**: `never`
+- **level**: `error`
+
+```sh
+echo ":bug: Some message" # fails
+echo ":bug: Some Message" # fails
+echo ":bug: SomeMessage" # fails
+echo ":bug: SOMEMESSAGE" # fails
+echo ":bug: some message" # passes
+echo ":bug: some Message" # passes
+```
+
+#### subject-empty
+
+- **condition**: `subject` 为空
+- **rule**: `never`
+- **level**: `error`
+
+```sh
+echo ":bug:" # fails
+echo ":bug: some message" # passes
+```
+
+#### subject-full-stop
+
+- **condition**: `subject` 以 `value` 指定的值结尾
+- **rule**: `never`
+- **level**: `error`
+- **value**
+
+```
+'.'
+```
+
+```sh
+echo ":bug: some message." # fails
+echo ":bug: some message" # passes
+```
+
+#### header-max-length
+
+- **condition**: `header` 的字符数小于等于 `value` 指定的值
+- **rule**: `always`
+- **level**: `error`
+- **value**
+
+```
+72
+```
+
+```sh
+echo ":bug: some message that is way too long and breaks the line max-length by several characters" # fails
+echo ":bug: some message" # passes
+```
+
+#### footer-leading-blank
+
+- **condition**: `footer` 需要有一个空行在文本之前
+- **rule**: `always`
+- level: `error`
+
+```sh
+echo ":bug: some message
+BREAKING CHANGE: It will be significant" # error
+
+echo ":bug: some message
+
+BREAKING CHANGE: It will be significant" # passes
+```
+
+#### body-leading-blank
+
+- **condition**: `body` 需要有一个空行在文本之前
+- **rule**: `always`
+- level: `error`
+
+```sh
+echo ":bug: some message
+body" # error
+
+echo ":bug: some message
+
+body" # passes
+```
+
+## <div id="gitmoji-list">Gitmoji List</div>
 > see [gitmojis.json](https://github.com/carloscuesta/gitmoji/blob/master/src/data/gitmojis.json) or [gitmoji.dev](https://gitmoji.dev/)
 
 
