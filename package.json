@@ -1,6 +1,6 @@
 {
   "name": "@ballcat/commitlint-config-gitmoji",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shareable commitlint config enforcing the gitmoji commit convention",
   "files": [
     "index.js"
