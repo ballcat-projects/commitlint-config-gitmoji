@@ -255,4 +255,5 @@ body" # passes
 | 🩺     | `:stethoscope:`               | Add or update healthcheck.                                   |
 | 🧱     | `:bricks:`                    | Infrastructure related changes.                              |
 | 🧑‍💻    | `:technologist:`              | Improve developer experience                                 |
-
+| 💸     | `:money_with_wings:`          | Add sponsorships or money related infrastructure.            |
+| 🧵     | `:thread:`                    | Add or update code related to multithreading or concurrency. |
