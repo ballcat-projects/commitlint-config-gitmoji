@@ -18,6 +18,10 @@
     "git"
   ],
   "author": "Hccake <chengbohua@foxmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ballcat-projects/commitlint-config-gitmoji.git"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=v14"
