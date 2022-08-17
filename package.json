@@ -32,6 +32,6 @@
     "jest": "^28.1.0"
   },
   "dependencies": {
-    "gitmojis": "^3.9.0"
+    "gitmojis": "^3.12.0"
   }
 }
